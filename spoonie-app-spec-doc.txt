@@ -1,0 +1,23 @@
+Fatigue Mitigation App Spec Document
+
+Overview
+This document exists to catalogue and define the initial specs for Version 1.0 of the App. In it we will define infrastructure that will be needed, and functionality that is desired. 
+
+Core functionality
+The core functionality of the app will be to track and manage one’s effort levels. This will both act as a motivator and a fatigue management system. Other features will include self-reporting, so the user is able to track their energy over time and adjust the levels in accordance with their personal needs. The app also has a variety of graphs and charts that are used for informing the user how much they are spending on various activities in a given day. 
+
+Data Needs
+To make this App work we will need a simple DB or DB-like structure. Using SQL as an example of data needed to be stored. A User table will need to exist, that stores a user’s basic information. This can be handy if multiple people wanted to use the same device. If that functionality is unwanted then a simple config file can be used. User’s target energy level, Age, Sex, and other relevant information would need to be stored here. 
+	The major piece of data storage will be the Task table. This table will need to store various pieces of information, Taskname, Prereq, Planned Date, Completed Date, Category, Priority, and Notes. If app is intended for usage over an extremely lengthy period of time, some archiving might be suggested, only needed if length of use exceeds ten years I would presume.
+	Category May want its own table, so you can add and remove them at will, though this would only matter if you wanted data associated with category (like color). 
+	Derived data might need to be stored as well, if it gets too complex to just calculate at runtime, this will become clear later down the line, but design either with the intent to add that feature from the ground up or try and optimize any queries as much as you can. 
+
+Home Screen
+The home screen of the app Should display immediate tasks for the user, probably with a graph. For example, if I opened the app, I would see a graph, showing my available energy for today, and a list of my tasks in order of priority and due date (consider giving the user the ability to swap which they think is more important.)
+	The user should be able to swipe up and down on the list to scroll and have some way to defer a task to a later day (swipe right). If the user taps on a task, they can mark it as done, delete it, or update the effort. The user should also be able to easily add new tasks from this view. 
+
+Graphs view
+Here the user can see their activity graphed out, look ahead, drag and drop activities from one day to another, and generally see how they are doing. Graphs should be laid out on a timeline and the user should have the option to filter by activity type, date (range), Status, and effort. 
+
+Personal View
+Here the user can edit their information. Change available energy targets, update goals, change personal info, and delete all info (for security reasons). 
